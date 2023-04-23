@@ -3,8 +3,8 @@ import os
 from pathlib import Path
 
 from aiogram import Bot, Dispatcher, executor, types
-from aiogram.types import Message, Audio
-from aiogram.types.input_file import InputFile
+#from aiogram.types import Message, Audio
+#from aiogram.types.input_file import InputFile
 from dotenv import load_dotenv
 
 from speech2text import STT
