@@ -1,14 +1,19 @@
 import logging
-import os, json
-#from pathlib import Path
+import json
 
 from create_bot import dp
+from data_base import audio_sqlite_db
 from aiogram.utils import executor
 from handlers import client, admin, other
 #from aiogram.types import Message, Audio
 from datetime import datetime
 
+client.register_handlers_client(dp)
+admin.register_handlers_admin(dp)
+other.register_handlers_other(dp)
+
 logger = logging.getLogger(__name__)
+formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
 logging.basicConfig(
     level=logging.INFO,
     filename="audio_bot.log",
@@ -26,8 +31,8 @@ config = json.load(file)
 #now = datetime.now()
 
 async def on_startup(_):
-    logging.warning("Elisseeff Audio Bot logging is ON!")
-    #sqllite_db.sql_start()
+    logger.warning("Elisseeff Audio Bot logging is ON!")
+    audio_sqlite_db.sql_start(logger)
 
 # Start the bot
 if __name__ == '__main__':

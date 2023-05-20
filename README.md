@@ -2,6 +2,7 @@
  Try to get Audio from Telegram Bot
 
 export PYTHONPATH="/home/pavel/github/AudioTelega"
+export PYTHONPATH="/home/pavel/github/AudioTelega/venv/lib/python3.10/site-packages"
 
 export GOOGLE_APPLICATION_CREDENTIALS="/home/pavel/tokens/zinc-fusion-386715-60a5226fadb5.json"
 
