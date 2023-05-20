@@ -1,0 +1,1 @@
+from google_stt import elis_google_stt
