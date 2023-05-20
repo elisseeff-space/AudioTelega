@@ -22,7 +22,7 @@ Example usage:
 
 import argparse
 from google.cloud import speech
-
+from create_bot import global_lang
 
 def print_result(result: speech.SpeechRecognitionResult):
     best_alternative = result.alternatives[0]
@@ -49,11 +49,13 @@ def transcribe_file(speech_file) -> str:
     with io.open(speech_file, "rb") as audio_file:
         content = audio_file.read()
 
+    #global lang
     audio = speech.RecognitionAudio(content=content)
     config = speech.RecognitionConfig(
         encoding=speech.RecognitionConfig.AudioEncoding.OGG_OPUS, #LINEAR16,
         sample_rate_hertz=48000,
-        language_code="ru",
+        #language_code="ru",
+        language_code = global_lang,
         enable_automatic_punctuation = True,
         enable_word_time_offsets=True,
     )
@@ -68,10 +70,9 @@ def transcribe_file(speech_file) -> str:
     for result in response.results:
         # The first alternative is the most likely one for this portion.
         # response_str = "Transcript: {}".format(result.alternatives[0].transcript)
-        print_result(result)
-    # [END speech_python_migration_sync_response]
+        # print_result(result)
         return result
-
+# [END speech_python_migration_sync_response]
 
 # [END speech_transcribe_sync]
 

@@ -5,12 +5,13 @@ from aiogram.types import ReplyKeyboardRemove, ContentType, File, Message
 from data_base import audio_sqlite_db
 from google_stt import elis_google_stt
 from pathlib import Path
+from create_bot import global_lang
 
 #@dp.message_handler(commands=['start', 'help'])
 async def command_start(message : types.Message):
     try:
-        await bot.send_message(message.from_user.id, 'Приветствую Вас в моей картинной галерее!', reply_markup=kb_client)
-        await message.delete()
+        await bot.send_message(message.from_user.id, 'Hi! It is voice recognition bot. You can send voice message. Bot immediatly send text message to @Elis_OpenAI_bot', reply_markup=kb_client)
+        #await message.delete()
     except:
         await message.reply('Общение с ботом через личку. Напишите ему:\nhttps://t.me/elis_gallery_bot')
 
@@ -29,20 +30,21 @@ async def voice_message_handler(message: Message): # types.Message):
     
     file_name = path + f"/{voice.file_id}.ogg"
     result = elis_google_stt.transcribe_file(file_name)
-    await message.reply("Transcript: {}".format(result.alternatives[0].transcript))
+    answer_message = "@Elis_OpenAI_bot {}".format(result.alternatives[0].transcript)
+    await message.reply(answer_message)
+    await audio_sqlite_db.use_log_add_command(message.from_user.username, message.from_user.id, answer_message, result.language_code, float(result.alternatives[0].confidence))
 
-    #print('Everything Allright!')
-    await audio_sqlite_db.use_log_add_command(message.from_user.username, message.from_user.id, 'Voice message' )
+async def language_ru_command(message : types.Message):
+    global_lang = 'ru'
+    await bot.send_message(message.from_user.id, 'Russian Language of Voice Messages.')
 
-async def working_time_command(message : types.Message):
-    await bot.send_message(message.from_user.id, 'Работает круглый сутки! Приходите все!')
+async def language_en_command(message : types.Message):
+    global_lang = 'en'
+    await bot.send_message(message.from_user.id, 'English Language of Voice Messages.')
 
-async def destination_command(message : types.Message):
-    await bot.send_message(message.from_user.id, 'Blumenstrasse, 13!', reply_markup=ReplyKeyboardRemove())
-
-async def gallery_menu_command(message : types.Message):
-    #await sqllite_db.sql_read(message)
-    await bot.send_message(message.from_user.id, 'Blumenstrasse, 13!')
+async def language_fr_command(message : types.Message):
+    global_lang = 'fr'
+    await bot.send_message(message.from_user.id, 'France Language of Voice Messages.')
 
 
 def register_handlers_client(dp : Dispatcher):
@@ -52,6 +54,6 @@ def register_handlers_client(dp : Dispatcher):
     types.ContentType.DOCUMENT
     ])
     dp.register_message_handler(command_start, commands=['start', 'help'])
-    dp.register_message_handler(working_time_command, commands=['working_time'])
-    dp.register_message_handler(destination_command, commands=['destination'])
-    dp.register_message_handler(gallery_menu_command, commands=['gallery'])
+    dp.register_message_handler(language_ru_command, commands=['ru'])
+    dp.register_message_handler(language_en_command, commands=['en'])
+    dp.register_message_handler(language_fr_command, commands=['fr'])

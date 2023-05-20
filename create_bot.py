@@ -11,3 +11,5 @@ storage = MemoryStorage()
 
 bot = Bot(token = config['rtlab_voice_bot_token'])
 dp = Dispatcher(bot, storage=storage)
+
+global_lang = 'ru'
