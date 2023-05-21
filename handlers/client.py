@@ -1,11 +1,13 @@
 from aiogram import types, Dispatcher
-from create_bot import dp, bot
-from keyboards import kb_client
+from create_bot import dp, bot, global_lang
+#import keyboards
+#from keyboards import kb_client
 from aiogram.types import ReplyKeyboardRemove, ContentType, File, Message
-from data_base import audio_sqlite_db
-from google_stt import elis_google_stt
+import data_base
+#from data_base import audio_sqlite_db
+#import google_stt
+#from google_stt import elis_google_stt
 from pathlib import Path
-from create_bot import global_lang
 
 #@dp.message_handler(commands=['start', 'help'])
 async def command_start(message : types.Message):
@@ -13,7 +15,7 @@ async def command_start(message : types.Message):
         await bot.send_message(message.from_user.id, 'Hi! It is voice recognition bot. You can send voice message.', reply_markup=kb_client)
         #await message.delete()
     except:
-        await message.reply('Общение с ботом через личку. Напишите ему:\nhttps://t.me/elis_gallery_bot')
+        await message.reply('Общение с ботом через личку. Напишите ему:\nhttps://t.me/rtlab_voice_bot')
 
 async def handle_file(file: File, file_name: str, path: str):
     Path(f"{path}").mkdir(parents=True, exist_ok=True)
