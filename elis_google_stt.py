@@ -22,7 +22,7 @@ Example usage:
 
 import argparse
 from google.cloud import speech
-from create_bot import global_lang
+from create_bot import global_lang, global_lang_model
 
 def print_result(result: speech.SpeechRecognitionResult):
     best_alternative = result.alternatives[0]
@@ -55,8 +55,11 @@ def transcribe_file(speech_file) -> str:
         encoding=speech.RecognitionConfig.AudioEncoding.OGG_OPUS, #LINEAR16,
         sample_rate_hertz=48000,
         #language_code="ru",
-        language_code = global_lang,
-        enable_automatic_punctuation = True,
+        language_code=global_lang,
+        #use_enhanced=True,
+        # A model must be specified to use enhanced model.
+        #model=global_lang_model,
+        enable_automatic_punctuation=True,
         enable_word_time_offsets=True,
     )
     # [END speech_python_migration_config]
