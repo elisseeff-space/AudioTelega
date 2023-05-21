@@ -4,6 +4,7 @@ from pathlib import Path
 from aiogram import Dispatcher, types
 from aiogram.types import ContentType, File, Message, ReplyKeyboardRemove
 from create_bot import bot, dp, global_lang
+from client_kb import kb_client
 
 #@dp.message_handler(commands=['start', 'help'])
 async def command_start(message : types.Message):
