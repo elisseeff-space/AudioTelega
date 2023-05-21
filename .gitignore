@@ -3,4 +3,4 @@ venv
 audio*
 voices
 elis-test.py
-*.db
+audio_telega.db
