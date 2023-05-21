@@ -29,7 +29,8 @@ async def voice_message_handler(message: Message): # types.Message):
     
     file_name = path + f"/{voice.file_id}.ogg"
     result = transcribe_file(file_name)
-    answer_message = "@Elis_OpenAI_bot {}".format(result.alternatives[0].transcript)
+    # answer_message = "@Elis_OpenAI_bot {}".format(result.alternatives[0].transcript)
+    answer_message = result.alternatives[0].transcript
     await message.reply(answer_message)
     await audio_sqlite_db.use_log_add_command(message.from_user.username, message.from_user.id, answer_message, result.language_code, float(result.alternatives[0].confidence))
 
