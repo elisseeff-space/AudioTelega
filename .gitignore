@@ -1,6 +1,6 @@
 models
 venv
-audio*
+*.log
 voices
 elis-test.py
 audio_telega.db
