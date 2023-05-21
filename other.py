@@ -9,7 +9,7 @@ async def echo_send(message : types.Message):
     #await bot.send_message(message.from_user.id, message.text)
 
     if {i.lower().translate(str.maketrans('', '', string.punctuation)) for i in message.text.split(' ')}\
-        .intersection(set(json.load(open('cenz.json', encoding='utf-8')))) != set():
+        .intersection(set(json.load(open('/home/pavel/cfg/cenz.json', encoding='utf-8')))) != set():
         await message.reply('Маты запрещены!')
         await message.delete()
     else:
