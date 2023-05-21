@@ -1,4 +1,5 @@
 import audio_sqlite_db
+import elis_google_stt
 from pathlib import Path
 from aiogram import Dispatcher, types
 from aiogram.types import ContentType, File, Message, ReplyKeyboardRemove
