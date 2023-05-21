@@ -1,5 +1,5 @@
 import audio_sqlite_db
-import elis_google_stt
+from elis_google_stt import transcribe_file
 from pathlib import Path
 from aiogram import Dispatcher, types
 from aiogram.types import ContentType, File, Message, ReplyKeyboardRemove
@@ -27,7 +27,7 @@ async def voice_message_handler(message: Message): # types.Message):
     await handle_file(file=voice, file_name=f"{voice.file_id}.ogg", path=path)
     
     file_name = path + f"/{voice.file_id}.ogg"
-    result = elis_google_stt.transcribe_file(file_name)
+    result = transcribe_file(file_name)
     answer_message = "@Elis_OpenAI_bot {}".format(result.alternatives[0].transcript)
     await message.reply(answer_message)
     await audio_sqlite_db.use_log_add_command(message.from_user.username, message.from_user.id, answer_message, result.language_code, float(result.alternatives[0].confidence))
