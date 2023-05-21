@@ -10,7 +10,7 @@ from create_bot import global_lang
 #@dp.message_handler(commands=['start', 'help'])
 async def command_start(message : types.Message):
     try:
-        await bot.send_message(message.from_user.id, 'Hi! It is voice recognition bot. You can send voice message. Bot immediatly send text message to @Elis_OpenAI_bot', reply_markup=kb_client)
+        await bot.send_message(message.from_user.id, 'Hi! It is voice recognition bot. You can send voice message.', reply_markup=kb_client)
         #await message.delete()
     except:
         await message.reply('Общение с ботом через личку. Напишите ему:\nhttps://t.me/elis_gallery_bot')

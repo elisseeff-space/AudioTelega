@@ -2,6 +2,7 @@ import logging
 import json
 
 from create_bot import dp
+import data_base
 from data_base import audio_sqlite_db
 from aiogram.utils import executor
 from handlers import client, admin, other
