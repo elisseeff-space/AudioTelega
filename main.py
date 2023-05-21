@@ -1,13 +1,15 @@
-import logging
 import json
+import logging
 
-from create_bot import dp
-#import data_base
-from data_base import audio_sqlite_db
 from aiogram.utils import executor
-#import handlers
-from handlers import client, admin, other
-from datetime import datetime
+
+import admin
+import audio_sqlite_db
+import client
+import other
+from create_bot import dp
+
+#from datetime import datetime
 
 client.register_handlers_client(dp)
 admin.register_handlers_admin(dp)

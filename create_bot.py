@@ -1,8 +1,8 @@
-from aiogram import Bot
-
-from aiogram.dispatcher import Dispatcher
 import json
+
+from aiogram import Bot
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
+from aiogram.dispatcher import Dispatcher
 
 file = open('/home/pavel/cfg/config.json', 'r')
 config = json.load(file)

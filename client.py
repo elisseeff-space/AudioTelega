@@ -1,13 +1,8 @@
-from aiogram import types, Dispatcher
-from create_bot import dp, bot, global_lang
-#import keyboards
-#from keyboards import kb_client
-from aiogram.types import ReplyKeyboardRemove, ContentType, File, Message
-import data_base
-#from data_base import audio_sqlite_db
-#import google_stt
-#from google_stt import elis_google_stt
+import audio_sqlite_db
 from pathlib import Path
+from aiogram import Dispatcher, types
+from aiogram.types import ContentType, File, Message, ReplyKeyboardRemove
+from create_bot import bot, dp, global_lang
 
 #@dp.message_handler(commands=['start', 'help'])
 async def command_start(message : types.Message):

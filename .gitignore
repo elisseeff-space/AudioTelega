@@ -3,3 +3,4 @@ venv
 audio*
 voices
 elis-test.py
+*.db
