@@ -9,7 +9,7 @@ from client_kb import kb_client
 #@dp.message_handler(commands=['start', 'help'])
 async def command_start(message : types.Message):
     try:
-        await bot.send_message(message.from_user.id, 'Hi! It is voice recognition bot. You can send voice message.', reply_markup=kb_client)
+        await bot.reply('Hi! It is voice recognition bot. You can send voice message.', reply_markup=kb_client)
         #await message.delete()
     except:
         await message.reply('Общение с ботом через личку. Напишите ему:\nhttps://t.me/rtlab_voice_bot')
@@ -35,15 +35,18 @@ async def voice_message_handler(message: Message): # types.Message):
 
 async def language_ru_command(message : types.Message):
     global_lang = 'ru'
-    await bot.send_message(message.from_user.id, 'Russian Language of Voice Messages.')
+    #await bot.send_message(message.from_user.id, 'Russian Language of Voice Messages.')
+    await bot.reply('Russian Language of Voice Messages.')
 
 async def language_en_command(message : types.Message):
     global_lang = 'en'
-    await bot.send_message(message.from_user.id, 'English Language of Voice Messages.')
+    #await bot.send_message(message.from_user.id, 'English Language of Voice Messages.')
+    await bot.reply('English Language of Voice Messages.')
 
 async def language_fr_command(message : types.Message):
     global_lang = 'fr'
-    await bot.send_message(message.from_user.id, 'France Language of Voice Messages.')
+    #await bot.send_message(message.from_user.id, 'France Language of Voice Messages.')
+    await bot.reply('France Language of Voice Messages.')
 
 
 def register_handlers_client(dp : Dispatcher):
