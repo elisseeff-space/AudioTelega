@@ -8,8 +8,11 @@ async def echo_send(message : types.Message):
     #await message.reply(message.text)
     #await bot.send_message(message.from_user.id, message.text)
 
+    with open('/home/pavel/cfg/words.json', 'r', encoding='utf-8') as ffile:
+        data = json.load(ffile)
+
     if {i.lower().translate(str.maketrans('', '', string.punctuation)) for i in message.text.split(' ')}\
-        .intersection(set(json.load(open('/home/pavel/cfg/cenz.json', encoding='utf-8')))) != set():
+        .intersection(set(i['word'] for i in data)) != set():
         await message.reply('Маты запрещены!')
         await message.delete()
     else:
