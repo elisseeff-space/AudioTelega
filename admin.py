@@ -39,8 +39,8 @@ async def cm_statistics(message : types.Message):
         #sss = buf.getvalue()
         sss = df.describe(include='object').to_string()
         #print(df.describe(include='object'))
-        bbuf = str(df[['use_date', 'user_name', 'action']]) + '\n-------------------------\n' + sss
-        await bot.send_message(message.from_user.id, bbuf, reply_markup=admin_kb.button_case_admin)
+        #bbuf = str(df[['use_date', 'user_name', 'action']]) + '\n-------------------------\n' + sss
+        await bot.send_message(message.from_user.id, sss, reply_markup=admin_kb.button_case_admin)
     
 # Handlers Registration
 def register_handlers_admin(dp : Dispatcher):
