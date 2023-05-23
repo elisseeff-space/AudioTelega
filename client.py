@@ -9,10 +9,10 @@ from client_kb import kb_client
 #@dp.message_handler(commands=['start', 'help'])
 async def command_start(message : types.Message):
     try:
-        await bot.reply('Hi! It is voice recognition bot. You can send voice message.', reply_markup=kb_client)
+        await message.reply('Hi! It is voice recognition bot. You can send voice message.', reply_markup=kb_client)
         #await message.delete()
     except:
-        await message.reply('Общение с ботом через личку. Напишите ему:\nhttps://t.me/rtlab_voice_bot')
+        await message.reply('Something wrong with me... \nhttps://t.me/rtlab_voice_bot', reply_markup=kb_client)
 
 async def handle_file(file: File, file_name: str, path: str):
     Path(f"{path}").mkdir(parents=True, exist_ok=True)
