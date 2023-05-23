@@ -22,7 +22,7 @@ Example usage:
 
 import argparse
 from google.cloud import speech
-from create_bot import global_lang, global_lang_model
+#from create_bot import global_lang, global_lang_model
 
 def print_result(result: speech.SpeechRecognitionResult):
     best_alternative = result.alternatives[0]
@@ -92,7 +92,7 @@ def transcribe_gcs(gcs_uri):
     config = speech.RecognitionConfig(
         encoding=speech.RecognitionConfig.AudioEncoding.FLAC,
         sample_rate_hertz=44100,
-        language_code="fr",
+        language_code=global_lang,
         enable_automatic_punctuation = True,
         enable_word_time_offsets=True,
     )

@@ -13,6 +13,3 @@ bot = Bot(token = config['rtlab_voice_bot_token'])
 #bot = Bot(token = config['VoskModelSTT_bot'])
 
 dp = Dispatcher(bot, storage=storage)
-
-global_lang = 'ru'
-global_lang_model = 'dafault'

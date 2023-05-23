@@ -16,6 +16,10 @@ Quota project "zinc-fusion-386715" was added to ADC which can be used by Google 
 virtualenv venv
 source venv/bin/activate
 
+pip install google-cloud-speech
+pip install aiogram
+pip install pandas
+
 
 
 # Хэндлер на получение голосового и аудио сообщения

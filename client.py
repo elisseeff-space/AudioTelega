@@ -3,7 +3,7 @@ from elis_google_stt import transcribe_file
 from pathlib import Path
 from aiogram import Dispatcher, types
 from aiogram.types import ContentType, File, Message, ReplyKeyboardRemove
-from create_bot import bot, dp, global_lang
+from create_bot import bot
 from client_kb import kb_client
 
 #@dp.message_handler(commands=['start', 'help'])
@@ -37,22 +37,22 @@ async def voice_message_handler(message: Message): # types.Message):
 async def language_ru_command(message : types.Message):
     global_lang = 'ru'
     #await bot.send_message(message.from_user.id, 'Russian Language of Voice Messages.')
-    await bot.reply('Russian Language of Voice Messages.')
+    await message.reply('Russian Language of Voice Messages.')
 
 async def language_en_command(message : types.Message):
     global_lang = 'en'
     #await bot.send_message(message.from_user.id, 'English Language of Voice Messages.')
-    await bot.reply('English Language of Voice Messages.')
+    await message.reply('English Language of Voice Messages.')
 
 async def language_fr_command(message : types.Message):
     global_lang = 'fr'
     #await bot.send_message(message.from_user.id, 'France Language of Voice Messages.')
-    await bot.reply('France Language of Voice Messages.')
+    await message.reply('France Language of Voice Messages.')
 
 async def language_de_command(message : types.Message):
     global_lang = 'de'
     #global_lang_model = 'command_and_search'
-    await bot.send_message(message.from_user.id, 'Deutsch Language of Voice Messages.')
+    await message.reply('Deutsch Language of Voice Messages.')
 
 """
 async def language_ru_phone_call(message : types.Message):

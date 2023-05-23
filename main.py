@@ -29,7 +29,9 @@ logger.addHandler(handler)
 
 file = open('/home/pavel/cfg/config.json', 'r')
 config = json.load(file)
-#rtlab_voice_bot_token
+
+global_lang = 'ru'
+#global_lang_model = 'dafault'
 
 #now = datetime.now()
 
