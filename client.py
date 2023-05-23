@@ -9,7 +9,7 @@ from client_kb import kb_client
 #@dp.message_handler(commands=['start', 'help'])
 async def command_start(message : types.Message):
     try:
-        await message.reply('Hi! It is voice recognition bot. You can send voice message.', reply_markup=kb_client)
+        await bot.send_message(message.from_user.id, 'Hi! It is voice recognition bot. You can send voice message.', reply_markup=kb_client)
         #await message.delete()
     except:
         await message.reply('Something wrong with me... \nhttps://t.me/rtlab_voice_bot', reply_markup=kb_client)
