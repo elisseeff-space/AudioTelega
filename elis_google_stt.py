@@ -55,7 +55,7 @@ def transcribe_file(speech_file) -> str:
         encoding=speech.RecognitionConfig.AudioEncoding.OGG_OPUS, #LINEAR16,
         sample_rate_hertz=48000,
         #language_code="ru",
-        language_code = global_lang,
+        language_code = 'ru',
         #use_enhanced=True,
         # A model must be specified to use enhanced model.
         #model=global_lang_model,
