@@ -35,21 +35,25 @@ async def voice_message_handler(message: Message): # types.Message):
     await audio_sqlite_db.use_log_add_command(message.from_user.username, message.from_user.id, answer_message, result.language_code, float(result.alternatives[0].confidence))
 
 async def language_ru_command(message : types.Message):
+    global global_lang
     global_lang = 'ru'
     #await bot.send_message(message.from_user.id, 'Russian Language of Voice Messages.')
     await message.reply('Russian Language of Voice Messages.')
 
 async def language_en_command(message : types.Message):
+    global global_lang
     global_lang = 'en'
     #await bot.send_message(message.from_user.id, 'English Language of Voice Messages.')
     await message.reply('English Language of Voice Messages.')
 
 async def language_fr_command(message : types.Message):
+    global global_lang
     global_lang = 'fr'
     #await bot.send_message(message.from_user.id, 'France Language of Voice Messages.')
     await message.reply('France Language of Voice Messages.')
 
 async def language_de_command(message : types.Message):
+    global global_lang
     global_lang = 'de'
     #global_lang_model = 'command_and_search'
     await message.reply('Deutsch Language of Voice Messages.')

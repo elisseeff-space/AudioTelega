@@ -49,13 +49,13 @@ def transcribe_file(speech_file) -> str:
     with io.open(speech_file, "rb") as audio_file:
         content = audio_file.read()
 
-    #global lang
+    global global_lang
     audio = speech.RecognitionAudio(content=content)
     config = speech.RecognitionConfig(
         encoding=speech.RecognitionConfig.AudioEncoding.OGG_OPUS, #LINEAR16,
         sample_rate_hertz=48000,
         #language_code="ru",
-        language_code=global_lang,
+        language_code = global_lang,
         #use_enhanced=True,
         # A model must be specified to use enhanced model.
         #model=global_lang_model,
