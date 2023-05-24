@@ -19,7 +19,7 @@ class BotLanguage:
 
 my_lang = BotLanguage('ru')
 
-#bot = Bot(token = config['rtlab_voice_bot_token'])
-bot = Bot(token = config['VoskModelSTT_bot'])
+bot = Bot(token = config['rtlab_voice_bot_token'])
+#bot = Bot(token = config['VoskModelSTT_bot'])
 
 dp = Dispatcher(bot, storage=storage)
