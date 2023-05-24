@@ -19,19 +19,16 @@ logger = logging.getLogger(__name__)
 formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
 logging.basicConfig(
     level=logging.INFO,
-    filename="audio_bot.log",
+    filename="/home/pavel/github/AudioTelega/log/audio_bot.log",
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
-handler = logging.FileHandler('audio_bot.log')
+handler = logging.FileHandler('/home/pavel/github/AudioTelega/log/audio_bot.log')
 handler.setLevel(logging.INFO)
 handler.setFormatter(formatter)
 logger.addHandler(handler)
 
 file = open('/home/pavel/cfg/config.json', 'r')
 config = json.load(file)
-
-global_lang = 'ru'
-#global_lang_model = 'dafault'
 
 #now = datetime.now()
 
