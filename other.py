@@ -16,7 +16,7 @@ async def echo_send(message : types.Message):
         await message.reply('Маты запрещены!')
         await message.delete()
     else:
-        await bot.reply('I`m here.')
+        await message.reply('I`m here.')
 
 def register_handlers_other(dp : Dispatcher):
     dp.register_message_handler(echo_send)
